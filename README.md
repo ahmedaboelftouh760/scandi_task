@@ -1,4 +1,4 @@
-# test
+# Read me
 
 ## Project setup
 ```
@@ -23,10 +23,6 @@ npm run build
 npm run lint
 ```
 
-### photos
-<img src="/images/scandi_1.png" height="350px">
-<img src="/images/scandi_2.png" height="350px">
-<img src="/images/scandi_3.png" height="350px">
 
 
 ### Customize configuration
