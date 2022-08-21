@@ -96,6 +96,7 @@ export default {
                         console.log(res.data.errors)
                         if(res.data.errors){
                             this.errors = res.data.errors;
+                            //comment
                         }else{
                                 this.back();
                         }
