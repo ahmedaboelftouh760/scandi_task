@@ -23,6 +23,7 @@ class AddProductRequest implements Validation
         }
     }
 
+
     // Custom validation rules
 
     public static function validate($rules)

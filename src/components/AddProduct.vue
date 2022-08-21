@@ -34,7 +34,7 @@
 
                 <div>
                     <select v-model="type" name="type" id="productType" @change="getAttributes($event)" >
-                            <option disabled>type</option>
+                            <option disabled selected>type</option>
                             <option :key="item.id" v-for="item in types" :value="item.id" :id="item.name" >{{item.name}}</option>
                     </select>
                 </div>
@@ -62,6 +62,7 @@ export default {
             name:'',
             sku:'',
             price: '',
+           
             type: 'type',
             errors: [],
             attributes: [],
@@ -85,17 +86,20 @@ export default {
                     for (const key in this.attributes) {
                             data.append(this.attributes[key].name,this.attributes[key].value);
                         }
-
+                    if(this.attributes.length == 0){
+                        this.errors = [];
+                         this.errors.push("pleace select type");
+                    }else
                     axios
                     .post('https://tight-laced-damages.000webhostapp.com/back_end/public/home/addProduct/',data)
                     .then(res => { 
-                        // console.log(res.data.errors)
+                        console.log(res.data.errors)
                         if(res.data.errors){
-                            // console.log(this.errors);
                             this.errors = res.data.errors;
                         }else{
-                           this.back();
+                                this.back();
                         }
+                         
                     })
                     .catch(err => (this.err = err.data))
                    
